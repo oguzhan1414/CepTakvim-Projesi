@@ -1,4 +1,4 @@
-# Bağımlılıklar (O 200 MB'lık asıl suçlu)
+# Bağımlılıklar 
 node_modules/
 
 # Production (Canlı) derleme klasörleri
@@ -6,8 +6,7 @@ dist/
 dist-ssr/
 build/
 
-# Çevre Değişkenleri ve Gizli Anahtarlar (İleride Iyzico API şifrelerini vs. koyduğumuzda güvenlik için çok kritik!)
-.env
+# Çevre Değişkenleri ve Gizli Anahtarlar ( Iyzico API şifrelerini , Veritabanı Bağlantıları vs )
 
 # Editör ve Sistem dosyaları
 .vscode/
