@@ -1,0 +1,270 @@
+.card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* Hover efekti */
+.card--hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-light);
+}
+
+/* Kart Varyasyonları */
+.card--bordered {
+  border: 2px solid var(--light);
+  box-shadow: none;
+}
+
+.card--bordered:hover {
+  border-color: var(--primary-color);
+}
+
+.card--flat {
+  box-shadow: none;
+  background: transparent;
+  border: 1px dashed var(--gray-light);
+}
+
+/* Renkli üst çizgili kartlar */
+.card--primary {
+  border-top: 4px solid var(--primary-color);
+}
+
+.card--secondary {
+  border-top: 4px solid var(--secondary-color);
+}
+
+.card--danger {
+  border-top: 4px solid var(--danger-color);
+}
+
+.card--warning {
+  border-top: 4px solid var(--warning-color);
+}
+
+.card--info {
+  border-top: 4px solid var(--info-color);
+}
+
+/* Gradient arkaplanlı kartlar (özel) */
+.card--gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--white);
+  border: none;
+}
+
+.card--gradient-primary .card-header,
+.card--gradient-primary .card-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.card--gradient-primary .card-header h3,
+.card--gradient-primary .card-header p {
+  color: var(--white);
+}
+
+/* Kart Başlık Bölümü */
+.card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.card-header h2,
+.card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.card-header h3 {
+  font-size: 1.125rem;
+}
+
+.card-header p {
+  color: var(--gray);
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0 0;
+}
+
+/* Başlık aksiyon butonu */
+.card-header-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Kart İçerik Bölümü */
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content--compact {
+  padding: 1rem;
+}
+
+/* Kart Footer Bölümü */
+.card-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--light);
+  background: var(--light-gray);
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+/* İstatistik Kartları için özel stiller */
+.stats-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--white), var(--light-gray));
+  border: 1px solid var(--light);
+}
+
+.stats-card .stat-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-card .stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.025em;
+}
+
+.stats-card .stat-label {
+  font-size: 0.875rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-weight: 500;
+}
+
+/* StatsCard varyasyonları */
+.stats-card--primary .stat-icon {
+  color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.stats-card--primary .stat-value {
+  color: var(--primary-color);
+}
+
+.stats-card--secondary .stat-icon {
+  color: var(--secondary-color);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.stats-card--secondary .stat-value {
+  color: var(--secondary-color);
+}
+
+/* Randevu kartı için özel stil */
+.appointment-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--light);
+  transition: background 0.2s ease;
+}
+
+.appointment-card:last-child {
+  border-bottom: none;
+}
+
+.appointment-card:hover {
+  background: var(--light-gray);
+}
+
+.appointment-time {
+  font-weight: 600;
+  color: var(--primary-color);
+  min-width: 70px;
+  font-size: 0.875rem;
+}
+
+.appointment-info {
+  flex: 1;
+}
+
+.appointment-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0 0 0.25rem 0;
+}
+
+.appointment-info p {
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin: 0;
+}
+
+.appointment-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status--confirmed {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--secondary-color);
+}
+
+.status--pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.status--cancelled {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .card-header {
+    padding: 1rem 1.25rem;
+  }
+  
+  .card-content {
+    padding: 1.25rem;
+  }
+  
+  .card-footer {
+    padding: 0.875rem 1.25rem;
+  }
+  
+  .stats-card .stat-value {
+    font-size: 2rem;
+  }
+}

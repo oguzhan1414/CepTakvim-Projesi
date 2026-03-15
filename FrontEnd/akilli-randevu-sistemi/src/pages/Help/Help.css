@@ -1,0 +1,356 @@
+/* ===== YARDIM MERKEZİ LIGHT TEMA ===== */
+.help-light-theme {
+  background-color: #ffffff; 
+  min-height: 100vh;
+  padding: 120px 1.5rem 5rem 1.5rem;
+  color: #111827;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.help-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===== HERO VE ARAMA ALANI ===== */
+.help-hero {
+  text-align: center;
+  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.help-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1rem;
+  letter-spacing: -1.5px;
+}
+
+.help-hero p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.help-search {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.5rem 4rem;
+  border-radius: 100px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-size: 1.1rem;
+  outline: none;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+/* ===== GRID VE KARTLAR (YATAYDA GENİŞ, ANIMASYONLU) ===== */
+.clean-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.clean-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+.clean-card.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.clean-card.animate-visible:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  border-color: #d1d5db;
+}
+
+.card-top-section {
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-icon {
+  width: 60px; height: 60px;
+  background: #eef2ff;
+  color: #4f46e5;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.8rem;
+}
+
+.card-summary {
+  font-size: 1.05rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.card-article-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-article-list li {
+  margin-bottom: 1.2rem;
+}
+
+.card-article-list li:last-child {
+  margin-bottom: 0;
+}
+
+.article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #4b5563;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1.4;
+}
+
+.article-link .type-icon { color: #4f46e5; font-size: 1.2rem; flex-shrink: 0;}
+
+.article-link:hover {
+  color: #4f46e5;
+  transform: translateX(5px);
+}
+
+/* ===== BULUNAMADI EKRANI ===== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #f8fafc;
+  border-radius: 20px;
+  border: 1px dashed #cbd5e1;
+}
+.no-results-icon { font-size: 3rem; color: #94a3b8; margin-bottom: 1rem; }
+.no-results h3 { color: #111827; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.no-results p { color: #64748b; font-size: 1.1rem; }
+
+
+/* ===== DETAY (OKUMA) SAYFASI ===== */
+.detail-view { background-color: #fafafa; }
+
+.article-top-nav {
+  max-width: 850px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-link {
+  background: transparent;
+  border: none;
+  color: #4b5563;
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+.back-link:hover { color: #4f46e5; }
+
+.article-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+.article-breadcrumb svg { font-size: 0.8rem; }
+.active-bread { color: #111827; font-weight: 600; }
+
+.clean-article {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
+  padding: 4rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+}
+
+.article-type-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #eef2ff; color: #4f46e5;
+  padding: 0.5rem 1.2rem; border-radius: 100px; 
+  font-size: 0.9rem; font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.clean-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.article-read-time { color: #6b7280; font-size: 1rem; font-weight: 500; margin-bottom: 3rem; }
+
+/* Video Oynatıcı Mockup */
+.video-player-mockup {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.video-overlay { text-align: center; }
+.play-button {
+  background: transparent; border: none; color: #ec4899;
+  font-size: 5rem; cursor: pointer; transition: all 0.3s ease;
+}
+.play-button:hover { transform: scale(1.1); color: #f472b6; }
+.video-overlay p { color: #cbd5e1; margin-top: 1rem; font-weight: 500; }
+
+/* Makale Metin Stilleri */
+.clean-content p {
+  font-size: 1.25rem;
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.article-steps {
+  margin-top: 3rem;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.article-steps h3 { font-size: 1.3rem; color: #0f172a; margin-bottom: 1.5rem; }
+.article-steps ul { list-style: none; padding: 0; }
+.article-steps li { 
+  display: flex; align-items: flex-start; gap: 1rem; 
+  font-size: 1.15rem; color: #334155; margin-bottom: 1.2rem; line-height: 1.6;
+}
+.step-icon { color: #10b981; font-size: 1.4rem; margin-top: 0.15rem; flex-shrink: 0; }
+
+/* Makale Sonu Destek Kutusu */
+.article-support-nudge {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nudge-content h4 { font-size: 1.2rem; color: #111827; margin-bottom: 0.5rem; }
+.nudge-content p { font-size: 1rem; color: #6b7280; margin: 0;}
+
+.nudge-btn {
+  background: #25D366; /* WhatsApp Yeşili */
+  color: #fff; border: none; padding: 0.8rem 1.5rem; border-radius: 12px;
+  font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s;
+  white-space: nowrap;
+}
+.nudge-btn:hover { background: #1ebc5a; transform: translateY(-2px); }
+
+/* ===== FOOTER ALANI ===== */
+.help-footer {
+  text-align: center;
+  background: #f8fafc;
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.help-footer h3 { font-size: 2rem; color: #0f172a; margin-bottom: 1rem; font-weight: 800;}
+.help-footer p { color: #475569; font-size: 1.15rem; margin-bottom: 2.5rem; }
+
+.help-buttons { display: flex; gap: 1.5rem; justify-content: center; }
+
+.help-btn {
+  padding: 1rem 2rem; border-radius: 100px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: all 0.3s;
+}
+.help-btn.primary { background: #4f46e5; color: white; border: none; }
+.help-btn.primary:hover { background: #4338ca; transform: translateY(-2px); }
+.help-btn.secondary { background: #ffffff; border: 1px solid #cbd5e1; color: #334155; }
+.help-btn.secondary:hover { background: #f1f5f9; border-color: #94a3b8; transform: translateY(-2px); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .clean-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .help-light-theme { padding: 100px 1rem 3rem 1rem; }
+  .help-hero h1 { font-size: 2.5rem; }
+  .clean-card { padding: 1.5rem; }
+  
+  .article-top-nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .clean-article { padding: 2rem 1.5rem; }
+  .clean-title { font-size: 2rem; }
+  .clean-content p, .article-steps li { font-size: 1.1rem; }
+  
+  .article-support-nudge { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .nudge-btn { width: 100%; }
+  
+  .help-buttons { flex-direction: column; width: 100%; }
+  .help-btn { width: 100%; }
+}

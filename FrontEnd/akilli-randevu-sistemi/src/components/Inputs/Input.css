@@ -1,0 +1,122 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--dark);
+  margin-left: 0.25rem;
+}
+
+.input-label.required::after {
+  content: '*';
+  color: var(--danger-color);
+  margin-left: 0.25rem;
+}
+
+.input-field {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--dark);
+  background: var(--white);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.input-field:hover {
+  border-color: var(--gray-light);
+}
+
+.input-field:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Input varyasyonları */
+.input-field.input--error {
+  border-color: var(--input-error-border);
+}
+
+.input-field.input--error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-field.input--success {
+  border-color: var(--input-success-border);
+}
+
+.input-field.input--disabled {
+  background: var(--input-disabled-bg);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Input ikonları */
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-icon.right {
+  left: auto;
+  right: 1rem;
+}
+
+.input-icon ~ .input-field {
+  padding-left: 2.8rem;
+}
+
+.input-icon.right ~ .input-field {
+  padding-left: 1rem;
+  padding-right: 2.8rem;
+}
+
+/* Textarea özel */
+textarea.input-field {
+  height: auto;
+  min-height: 100px;
+  padding: 0.75rem 1rem;
+  resize: vertical;
+}
+
+/* Select özel */
+select.input-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+.input-helper {
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-left: 0.25rem;
+}
+
+.input-error {
+  font-size: 0.75rem;
+  color: var(--danger-color);
+  margin-left: 0.25rem;
+}

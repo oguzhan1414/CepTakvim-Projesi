@@ -1,0 +1,662 @@
+/* ===== OVERVIEW (ANA DASHBOARD) SAYFASI STİLLERİ ===== */
+
+.overview-page {
+  padding: 1.5rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ===== DASHBOARD HEADER ===== */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #94a3b8;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn .spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== İSTATİSTİK KARTLARI ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.stat-change {
+  font-size: 0.7rem;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+/* ===== ANA GRİD ===== */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ===== SOL KOLON - BUGÜNÜN RANDEVULARI ===== */
+.appointments-section {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-title-group h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.badge-count {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(79, 70, 229, 0.1);
+  color: #818cf8;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.text-btn {
+  background: transparent;
+  border: none;
+  color: #818cf8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.text-btn:hover {
+  color: #a5b4fc;
+}
+
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.appointment-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.appointment-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+.app-time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.time-main {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.time-duration {
+  font-size: 0.65rem;
+  color: #64748b;
+}
+
+.app-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.app-avatar.pending {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.app-details {
+  flex: 1;
+}
+
+.app-details h4 {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.app-details p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0 0 0.2rem 0;
+}
+
+.staff-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  background: rgba(79, 70, 229, 0.1);
+  color: #818cf8;
+  border-radius: 100px;
+}
+
+.app-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.app-status {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.app-status.pending { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.app-status.confirmed { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.app-status.completed { background: rgba(79, 70, 229, 0.15); color: #818cf8; }
+.app-status.cancelled { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+/* ===== SAĞ KOLON ===== */
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 1. Yaklaşan Randevular Kartı */
+.upcoming-card {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upcoming-item {
+  display: grid;
+  grid-template-columns: 60px 50px 1fr 20px;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.upcoming-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.upcoming-date { color: #818cf8; font-weight: 600; }
+.upcoming-time { color: #94a3b8; }
+.upcoming-customer { color: #e2e8f0; }
+
+.upcoming-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.upcoming-status.pending { background: #f59e0b; }
+.upcoming-status.confirmed { background: #10b981; }
+.upcoming-status.completed { background: #818cf8; }
+.upcoming-status.cancelled { background: #ef4444; }
+
+/* 2. Son Eklenen Müşteriler Kartı (KUSURSUZ TASARIM) */
+.recent-customers-card {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.customers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0; 
+}
+
+.customer-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0.5rem;
+  background: transparent !important; 
+  border: none !important; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+
+.customer-item:last-child {
+  border-bottom: none !important;
+}
+
+.customer-item:hover {
+  background: rgba(79, 70, 229, 0.05) !important;
+  border-radius: 8px !important;
+  border-bottom-color: transparent !important;
+}
+
+.customer-avatar-small {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(79, 70, 229, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #818cf8;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.customer-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important; 
+  justify-content: center;
+  background: transparent !important; 
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.customer-name {
+  font-size: 0.9rem;
+  color: #f8fafc !important; 
+  font-weight: 500;
+  margin-bottom: 0.1rem;
+}
+
+.customer-phone {
+  font-size: 0.75rem;
+  color: #94a3b8 !important; 
+}
+
+/* 3. Hızlı İşlemler Kartı (YENİ TASARIM) */
+.quick-actions-card {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.quick-actions-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0 0 1.2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quick-actions-card h3 svg {
+  color: #818cf8;
+  font-size: 1.1rem;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.quick-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.quick-action-item:hover {
+  transform: translateY(-2px);
+  border-color: #4f46e5;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.quick-action-item .icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.quick-action-item:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+.quick-action-item .action-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Renkli Hızlı İşlem İkonları */
+.quick-action-item.calendar .icon-wrapper { background: rgba(79, 70, 229, 0.15); color: #818cf8; }
+.quick-action-item.calendar:hover { border-color: #4f46e5; }
+.quick-action-item.calendar:hover .icon-wrapper { background: #4f46e5; color: white; }
+
+.quick-action-item.customer .icon-wrapper { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.quick-action-item.customer:hover { border-color: #10b981; }
+.quick-action-item.customer:hover .icon-wrapper { background: #10b981; color: white; }
+
+.quick-action-item.message .icon-wrapper { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.quick-action-item.message:hover { border-color: #f59e0b; }
+.quick-action-item.message:hover .icon-wrapper { background: #f59e0b; color: white; }
+
+.quick-action-item.report .icon-wrapper { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
+.quick-action-item.report:hover { border-color: #ec4899; }
+.quick-action-item.report:hover .icon-wrapper { background: #ec4899; color: white; }
+
+
+/* ===== BOŞ DURUM (EMPTY STATE), YÜKLENİYOR VE HATA ===== */
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.5; }
+.empty-state p { color: #94a3b8; margin-bottom: 1rem; }
+.empty-text { color: #64748b; text-align: center; padding: 1rem; font-size: 0.85rem; }
+
+.empty-state .primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.empty-state .primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.dashboard-loading, .dashboard-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(79, 70, 229, 0.1);
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.dashboard-loading p, .dashboard-error p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.dashboard-error { color: #ef4444; }
+.dashboard-error svg { opacity: 0.5; }
+
+.retry-btn {
+  padding: 0.6rem 1.2rem;
+  background: rgba(79, 70, 229, 0.1);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  border-radius: 8px;
+  color: #818cf8;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-btn:hover { background: rgba(79, 70, 229, 0.2); }
+
+
+/* ===== BEKLEYEN ONAY UYARISI ===== */
+.pending-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: -0.5rem;
+}
+
+.pending-alert:hover {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.45);
+  transform: translateY(-1px);
+}
+
+.pending-alert-icon {
+  font-size: 1.1rem;
+  animation: pulse-amber 2s ease-in-out infinite;
+}
+
+@keyframes pulse-amber {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.pending-alert-text {
+  flex: 1;
+  color: #fcd34d;
+  font-size: 0.9rem;
+}
+
+.pending-alert-text strong {
+  color: #fbbf24;
+}
+
+.pending-alert-action {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ===== RESPONSIVE (MOBİL UYUM) ===== */
+@media (max-width: 1200px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-main-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .overview-page { padding: 1rem; }
+  .dashboard-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .refresh-btn { width: 100%; justify-content: center; }
+  .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .appointment-item { flex-wrap: wrap; }
+  .app-actions { width: 100%; justify-content: flex-end; }
+  .upcoming-item { grid-template-columns: 1fr; gap: 0.25rem; text-align: center; }
+  .upcoming-status { margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+  .appointment-item { flex-direction: column; align-items: flex-start; }
+  .app-time-block { flex-direction: row; gap: 0.5rem; }
+  .app-actions { margin-left: 0; }
+  .quick-actions-grid { grid-template-columns: 1fr; }
+}

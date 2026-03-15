@@ -1,0 +1,384 @@
+/* ===== NAVBAR - PREMIUM GLASS ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(3, 7, 18, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(3, 7, 18, 0.95);
+  border-bottom-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* ===== LOGO ===== */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.5));
+  animation: float 3s infinite ease-in-out;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, #ffffff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== MASAÜSTÜ MENÜ ===== */
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5, #ec4899);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-link:hover {
+  color: #ffffff;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-link.active {
+  color: #ffffff;
+}
+
+.navbar-link.active::after {
+  width: 100%;
+}
+
+/* ===== SAĞ TARAF - MASAÜSTÜ BUTONLAR ===== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktop-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ===== RANDEVU AL BUTONU ===== */
+.btn-randevu {
+  background: transparent !important;
+  color: #10b981 !important;
+  border: 1.5px solid #10b981 !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  box-shadow: none !important;
+}
+
+.btn-randevu:hover {
+  background: #10b981 !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.btn-randevu svg {
+  font-size: 1rem;
+}
+
+/* ===== RANDEVULARIM BUTONU ===== */
+.btn-my-appointments {
+  background: transparent !important;
+  color: #8b5cf6 !important;
+  border: 1.5px solid #8b5cf6 !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  box-shadow: none !important;
+}
+
+.btn-my-appointments:hover {
+  background: #8b5cf6 !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* ===== GİRİŞ YAP BUTONU ===== */
+.btn-outline {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: none !important;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ===== ÜCRETSİZ DENE BUTONU ===== */
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #ec4899) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 100px !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: 1;
+}
+
+.btn-primary:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+  background: linear-gradient(135deg, #4f46e5, #f43f5e) !important;
+}
+
+/* ===== HAMBURGER MENÜ ===== */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.navbar-toggle span {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4f46e5, #ec4899);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background: #ec4899;
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background: #4f46e5;
+}
+
+/* ===== MOBİL MENÜ ===== */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: rgba(3, 7, 18, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.mobile-nav-list li {
+  width: 100%;
+}
+
+.mobile-link {
+  display: block;
+  padding: 1rem 2rem;
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.mobile-link.with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.mobile-link:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: #ffffff;
+}
+
+.mobile-link.register {
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  color: white;
+  margin: 0.5rem 2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 1rem 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .desktop-buttons {
+    display: none;
+  }
+}
+
+/* Tablet için */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop-menu {
+    gap: 1.5rem;
+  }
+  
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* ===== ANİMASYONLAR ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.navbar-logo .logo-icon {
+  height: 80px; /* Logonu navbar'a sığdıracak uygun yüksekliği ver */
+  width: auto;
+  object-fit: contain;
+}

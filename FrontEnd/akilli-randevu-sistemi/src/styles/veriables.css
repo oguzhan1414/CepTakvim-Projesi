@@ -1,0 +1,203 @@
+/* ==========================================================================
+   VIBESCHEDULE - MODERN RENK PALETİ (SICAK VE DAVETKAR)
+   ========================================================================== */
+
+:root {
+  /* ===== ANA RENKLER - YUMUŞAK VE DAVETKAR ===== */
+  --primary-soft: #fdf4f5;        /* Çok açıp pembe - arkaplanlar için */
+  --primary-light: #fbc1cb;       /* Pastel pembe */
+  --primary: #f47b99;              /* Sıcak pembe - ana renk */
+  --primary-deep: #d64b6b;         /* Koyu pembe - vurgular için */
+  
+  --secondary-soft: #e8f0fe;       /* Açık mavi - arkaplanlar için */
+  --secondary-light: #b2d0f0;      /* Pastel mavi */
+  --secondary: #5f9ea0;            /* Kadife mavi - ikincil renk */
+  --secondary-deep: #3d7b7d;       /* Koyu kadife */
+  
+  /* ===== AKSAN RENKLERİ ===== */
+  --accent-sunshine: #fde9c5;      /* Açık krem */
+  --accent-mint: #d3f0e9;          /* Nane yeşili */
+  --accent-lavender: #e2d5f0;       /* Lavanta */
+  --accent-peach: #ffe0d4;          /* Şeftali */
+  
+  /* ===== BAŞARI/ONAY RENKLERİ ===== */
+  --success-light: #e0f5e9;
+  --success: #2e8b6c;
+  --success-deep: #1e5f4a;
+  
+  /* ===== UYARI/HATA RENKLERİ ===== */
+  --warning-light: #fff0d9;
+  --warning: #e68a2e;
+  --warning-deep: #b3621a;
+  
+  --error-light: #ffe5e5;
+  --error: #d45c5c;
+  --error-deep: #a13a3a;
+  
+  /* ===== NÖTR RENKLER - SICAK TONLAR ===== */
+  --gray-50: #faf9f8;
+  --gray-100: #f3f2f0;
+  --gray-200: #e8e5e1;
+  --gray-300: #d9d4ce;
+  --gray-400: #b9b1a9;
+  --gray-500: #9a9085;
+  --gray-600: #7b6f62;
+  --gray-700: #5c5042;
+  --gray-800: #3e3326;
+  --gray-900: #241e16;
+  
+  /* ===== BEYAZ VE SİYAH (YUMUŞATILMIŞ) ===== */
+  --white: #ffffff;
+  --off-white: #fefcf9;
+  --cream: #fdf9f2;
+  --black: #221c14;
+  --black-soft: #2e271f;
+  
+  /* ===== ARKAPLAN RENKLERİ ===== */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fcf9f7;
+  --bg-tertiary: #f9f4f0;
+  --bg-card: #ffffff;
+  --bg-input: #fcf9f7;
+  
+  /* ===== METİN RENKLERİ ===== */
+  --text-primary: #2e271f;
+  --text-secondary: #5c5042;
+  --text-tertiary: #7b6f62;
+  --text-light: #9a9085;
+  --text-inverse: #ffffff;
+  
+  /* ===== BORDER RENKLERİ ===== */
+  --border-light: #ece7e2;
+  --border-medium: #d9d2ca;
+  --border-dark: #b9afa5;
+  
+  /* ===== GÖLGELER - YUMUŞAK ===== */
+  --shadow-sm: 0 2px 8px rgba(46, 39, 31, 0.04), 0 1px 2px rgba(46, 39, 31, 0.02);
+  --shadow-md: 0 4px 12px rgba(46, 39, 31, 0.05), 0 2px 4px rgba(46, 39, 31, 0.02);
+  --shadow-lg: 0 8px 24px rgba(46, 39, 31, 0.06), 0 4px 8px rgba(46, 39, 31, 0.02);
+  --shadow-xl: 0 20px 40px rgba(46, 39, 31, 0.08), 0 6px 12px rgba(46, 39, 31, 0.02);
+  --shadow-inner: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-glow: 0 0 0 3px rgba(244, 123, 153, 0.15);
+  
+  /* ===== BORDER RADIUS ===== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+  
+  /* ===== FORM ELEMANLARI ===== */
+  --input-height: 48px;
+  --input-bg: #fcf9f7;
+  --input-border: #e8e2dc;
+  --input-border-focus: #f47b99;
+  --input-text: #2e271f;
+  --input-placeholder: #b9afa5;
+  --input-disabled-bg: #f3efea;
+  
+  /* ===== BUTON RENKLERİ ===== */
+  --btn-primary-bg: #f47b99;
+  --btn-primary-hover: #d64b6b;
+  --btn-primary-text: #ffffff;
+  
+  --btn-secondary-bg: #5f9ea0;
+  --btn-secondary-hover: #3d7b7d;
+  --btn-secondary-text: #ffffff;
+  
+  --btn-outline-border: #e0d9d2;
+  --btn-outline-text: #5c5042;
+  --btn-outline-hover-bg: #fefcf9;
+  --btn-outline-hover-border: #f47b99;
+  
+  /* ===== KART RENKLERİ ===== */
+  --card-bg: #ffffff;
+  --card-border: #ece7e2;
+  --card-shadow: var(--shadow-md);
+  
+  /* ===== BİLDİRİM RENKLERİ ===== */
+  --notification-info: #5f9ea0;
+  --notification-success: #2e8b6c;
+  --notification-warning: #e68a2e;
+  --notification-error: #d45c5c;
+  
+  /* ===== Z-INDEX KATMANLARI ===== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 2000;
+  --z-popover: 3000;
+  --z-tooltip: 4000;
+  --z-toast: 5000;
+  
+  /* ===== ANİMASYONLAR ===== */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* ===== FONT AİLESİ ===== */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  
+  /* ===== FONT BOYUTLARI ===== */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-md: 1.125rem;   /* 18px */
+  --text-lg: 1.25rem;    /* 20px */
+  --text-xl: 1.5rem;     /* 24px */
+  --text-2xl: 1.875rem;  /* 30px */
+  --text-3xl: 2.25rem;   /* 36px */
+  --text-4xl: 3rem;      /* 48px */
+  
+  /* ===== FONT AĞIRLIKLARI ===== */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  
+  /* ===== BOŞLUKLAR ===== */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  
+  /* ===== GRİD SİSTEMİ ===== */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* ===== LAYOUT ===== */
+  --header-height: 70px;
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 80px;
+  
+  /* ===== ÖZEL DURUMLAR ===== */
+  --overlay-bg: rgba(46, 39, 31, 0.6);
+  --backdrop-blur: blur(8px);
+  
+  /* ===== GRADIENTLER ===== */
+  --gradient-primary: linear-gradient(135deg, #f47b99, #fbc1cb);
+  --gradient-secondary: linear-gradient(135deg, #5f9ea0, #b2d0f0);
+  --gradient-sunset: linear-gradient(135deg, #f47b99, #e68a2e);
+  --gradient-ocean: linear-gradient(135deg, #5f9ea0, #b2d0f0);
+  --gradient-mint: linear-gradient(135deg, #d3f0e9, #a8e0d5);
+  
+  /* ===== EKLENTİLER ===== */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(46, 39, 31, 0.08);
+  --glass-blur: blur(10px);
+}

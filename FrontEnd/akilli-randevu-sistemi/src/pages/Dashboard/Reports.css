@@ -1,0 +1,322 @@
+/* Reports Engineered Aesthetics */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.rep-container {
+  padding: 2rem;
+  color: #f3f4f6;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  /* Dark mode background that meshes with Dashboard */
+  background: transparent; 
+}
+
+/* Loading */
+.rep-loading {
+  display: flex; justify-content: center; align-items: center; height: 70vh;
+}
+.rep-spinner {
+  width: 36px; height: 36px; 
+  border: 3px solid #374151; 
+  border-top-color: #3b82f6;
+  border-radius: 50%; 
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Header & Controls */
+.rep-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1f2937;
+}
+
+.rep-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rep-title { 
+  font-size: 1.75rem; 
+  font-weight: 600; 
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  margin: 0; 
+}
+
+.rep-subtitle { 
+  color: #9ca3af; 
+  font-size: 0.95rem; 
+  margin: 0; 
+}
+
+.rep-controls {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+/* Month Picker (Vercel Style) */
+.rep-month-picker-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  height: 38px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.rep-month-picker-wrapper:focus-within {
+  border-color: #4b5563;
+}
+
+.rep-month-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.rep-month-input {
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  padding: 0 12px 0 36px;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  color-scheme: dark; /* Native dark calendar icon */
+}
+
+/* Export Buttons */
+.rep-export-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.rep-btn {
+  display: flex; 
+  align-items: center; 
+  gap: 6px;
+  padding: 0 16px;
+  height: 38px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.rep-btn-outline {
+  background: #111827;
+  color: #d1d5db;
+  border: 1px solid #374151;
+}
+.rep-btn-outline:hover { 
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.rep-btn-solid {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #f3f4f6;
+}
+.rep-btn-solid:hover { 
+  background: #e5e7eb; 
+}
+
+/* Minimalist KPI Cards */
+.rep-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.rep-kpi-card {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rep-kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rep-kpi-label {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rep-kpi-icon {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.rep-kpi-value {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Charts Layout */
+.rep-charts-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.rep-chart-box {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rep-chart-full {
+  grid-column: 1 / -1;
+}
+
+.rep-chart-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #374151;
+}
+.rep-chart-header h2 {
+  color: #f3f4f6;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rep-chart-body {
+  padding: 1.5rem;
+}
+.pie-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Custom Recharts Tooltip */
+.rep-custom-tooltip {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
+  min-width: 140px;
+}
+.rep-tooltip-label {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.rep-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.rep-tooltip-row:last-child { margin-bottom: 0; }
+.rep-tooltip-color {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.rep-tooltip-name {
+  color: #d1d5db;
+  font-size: 0.85rem;
+  flex: 1;
+}
+.rep-tooltip-value {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Pie Chart Custom Legend */
+.rep-custom-legend {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.rep-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+.rep-legend-item .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 8px;
+}
+.rep-legend-item .label {
+  color: #d1d5db;
+  flex: 1;
+}
+.rep-legend-item .val {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Empty State */
+.rep-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: #1f2937;
+  border: 1px dashed #4b5563;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 2rem;
+}
+.rep-empty-state .empty-icon {
+  font-size: 2.5rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+.rep-empty-state h3 {
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+}
+.rep-empty-state p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  max-width: 400px;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .rep-charts-layout { grid-template-columns: 1fr; }
+  .rep-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .rep-controls { width: 100%; flex-wrap: wrap; justify-content: space-between; }
+}

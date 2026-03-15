@@ -1,0 +1,15 @@
+# Bağımlılıklar (O 200 MB'lık asıl suçlu)
+node_modules/
+
+# Production (Canlı) derleme klasörleri
+dist/
+dist-ssr/
+build/
+
+# Çevre Değişkenleri ve Gizli Anahtarlar (İleride Iyzico API şifrelerini vs. koyduğumuzda güvenlik için çok kritik!)
+.env
+
+# Editör ve Sistem dosyaları
+.vscode/
+.DS_Store
+npm-debug.log*

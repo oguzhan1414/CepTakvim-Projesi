@@ -1,0 +1,1163 @@
+/* ===== PUBLIC SAYFALAR ORTAK STİLLER ===== */
+
+.public-page {
+  min-height: 100vh;
+  background: #030712;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Loading Spinner */
+.public-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #030712;
+  color: #ffffff;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(79, 70, 229, 0.1);
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== HERO SECTION ===== */
+.public-hero {
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.public-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="10" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.1;
+  animation: float 20s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-60px); }
+}
+
+.public-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.public-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: white;
+}
+
+.public-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Arama Kutusu */
+.public-search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  padding: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.public-search-box .search-icon {
+  color: #64748b;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.public-search-box input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: #1e293b;
+}
+
+.public-search-box input::placeholder {
+  color: #94a3b8;
+}
+
+.public-search-box .search-btn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 0.25rem;
+}
+
+.public-search-box .search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== KATEGORİLER ===== */
+.public-categories {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.categories-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #94a3b8;
+}
+
+.category-card:hover {
+  background: rgba(79, 70, 229, 0.05);
+  border-color: #4f46e5;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.category-card.active {
+  background: linear-gradient(135deg, #4f46e5, #818cf8);
+  border-color: transparent;
+  color: white;
+}
+
+.category-icon {
+  font-size: 2rem;
+}
+
+.category-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ===== İŞLETME LİSTESİ ===== */
+.business-list-section {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.list-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #ffffff;
+}
+
+.toggle-btn.active {
+  background: #4f46e5;
+  color: white;
+}
+
+/* Grid Görünümü */
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.business-grid.list-view {
+  grid-template-columns: 1fr;
+}
+
+.business-card {
+  display: flex;
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.business-grid:not(.list-view) .business-card {
+  flex-direction: column;
+}
+
+.business-grid.list-view .business-card {
+  flex-direction: row;
+  align-items: center;
+}
+
+.business-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(79, 70, 229, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* İşletme Resmi */
+.business-image {
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.business-grid:not(.list-view) .business-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.business-grid.list-view .business-image {
+  width: 120px;
+  height: 120px;
+  margin: 1rem;
+  border-radius: 12px;
+}
+
+/* İşletme Bilgileri */
+.business-info {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.business-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.business-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.business-price {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.business-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.star-icon {
+  color: #fbbf24;
+  font-size: 0.9rem;
+}
+
+.business-rating span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.review-count {
+  color: #64748b !important;
+  font-weight: 400 !important;
+  margin-left: 0.25rem;
+}
+
+.business-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.detail-icon {
+  color: #818cf8;
+  font-size: 0.9rem;
+}
+
+.distance {
+  color: #10b981;
+  margin-left: 0.25rem;
+}
+
+.business-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.category-tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(79, 70, 229, 0.1);
+  color: #818cf8;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.arrow-icon {
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+
+.business-card:hover .arrow-icon {
+  transform: translateX(5px);
+  color: #818cf8;
+}
+
+/* Liste görünümü özel stiller */
+.business-grid.list-view .business-details {
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .business-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .public-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .public-hero p {
+    font-size: 1rem;
+  }
+  
+  .public-search-box {
+    flex-direction: column;
+    background: transparent;
+    gap: 1rem;
+  }
+  
+  .public-search-box input {
+    width: 100%;
+    background: white;
+    border-radius: 50px;
+  }
+  
+  .public-search-box .search-btn {
+    width: 100%;
+  }
+  
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .category-card {
+    min-width: 100px;
+  }
+  
+  .business-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .business-grid.list-view .business-card {
+    flex-direction: column;
+  }
+  
+  .business-grid.list-view .business-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .business-grid.list-view .business-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .list-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .business-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* ===== BUSINESS DETAILS SAYFASI STİLLERİ ===== */
+
+.business-details-page {
+  max-width: 1200px;
+  margin: 100px auto 2rem;
+  padding: 0 2rem;
+  position: relative;
+}
+
+/* Geri Butonu */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 2rem;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* İşletme Header Kartı */
+.business-header-card {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.business-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+.business-header-info {
+  flex: 1;
+}
+
+.business-header-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.business-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.meta-item svg {
+  color: #818cf8;
+}
+
+/* Çalışma Saatleri Kartı */
+.working-hours-card {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.working-hours-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+}
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.hour-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hour-item .day {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.hour-item .time {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.hour-item .closed {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Randevu Adımları */
+.booking-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -50%;
+  top: 20px;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.step.active:not(:last-child)::after {
+  background: linear-gradient(90deg, #4f46e5, #ec4899);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-weight: 600;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+.step.completed .step-number {
+  background: #10b981;
+  border-color: transparent;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.step.active .step-label {
+  color: #e2e8f0;
+}
+
+/* Hizmetler Bölümü */
+.services-section {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.services-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  border-color: #4f46e5;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.service-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.service-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.service-details {
+  margin-bottom: 1rem;
+}
+
+.service-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.service-duration svg {
+  color: #818cf8;
+}
+
+.service-description {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.select-btn {
+  width: 100%;
+  padding: 0.6rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select-btn:hover {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: white;
+}
+
+/* Personel Bölümü */
+.staff-section {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.staff-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.skip-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: #94a3b8;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.2s ease;
+}
+
+.skip-btn:hover {
+  border-color: #4f46e5;
+  color: #ffffff;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.staff-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-2px);
+  border-color: #4f46e5;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.staff-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.staff-info {
+  flex: 1;
+}
+
+.staff-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+}
+
+.staff-info p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.staff-card .select-btn {
+  width: auto;
+  padding: 0.4rem 1rem;
+}
+
+/* Tarih ve Saat Bölümü */
+.datetime-section {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.datetime-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+}
+
+.datetime-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 2rem 0 1rem 0;
+}
+
+.date-picker {
+  margin-bottom: 1rem;
+}
+
+.date-picker label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.date-picker input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.date-picker input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+.slot-btn {
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.slot-btn:hover {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: #4f46e5;
+}
+
+.slot-btn.selected {
+  background: linear-gradient(135deg, #4f46e5, #818cf8);
+  border-color: transparent;
+  color: white;
+}
+
+.no-slots {
+  color: #64748b;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+/* Müşteri Bilgileri Bölümü */
+.customer-info-section {
+  background: rgba(18, 22, 32, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.customer-info-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+/* Özet Kartı */
+.summary-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.summary-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item span:first-child {
+  color: #94a3b8;
+}
+
+.summary-item span:last-child {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.total-price {
+  color: #10b981 !important;
+  font-size: 1.2rem;
+}
+
+/* Submit Butonu */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hata Sayfası */
+.public-error {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.public-error h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.public-error p {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .business-details-page {
+    margin-top: 80px;
+    padding: 0 1rem;
+  }
+  
+  .business-header-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .business-meta {
+    justify-content: center;
+  }
+  
+  .hours-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-steps {
+    padding: 1rem 0.5rem;
+  }
+  
+  .step-label {
+    display: none;
+  }
+  
+  .services-grid,
+  .staff-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .slots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
