@@ -39,36 +39,36 @@ Aşağıda, uygulamanın sunduğu modern ve sezgisel arayüzden çeşitli görü
     <td align="center">
       <img src="https://github.com/user-attachments/assets/7966ab5b-bcbd-418a-9ed0-52a0ef5219d8" width="100%" alt="Kontrol Paneli" />
       <br />
-      <b>Dashboard (Kontrol Paneli)</b>
+      <b>Müşteri Yönetim Paneli - Dashboard Bileşenleri</b>
     </td>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/952a4c5a-5921-46a5-808d-2d95365e8101" width="100%" alt="Genel Görünüm" />
       <br />
-      <b>Arayüz Genel Görünüm</b>
+      <b>İşletme Sayfası (Public Page)</b>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/c09b64dd-4046-4181-b25b-87e621822037" width="100%" alt="Takvim ve Planlama" />
       <br />
-      <b>Takvim & Planlama Yönetimi</b>
+      <b>Randevu Oluşturma Sayfası (Public Page)</b>
     </td>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/267e99ce-e5ae-436b-9f2a-f336853c3583" width="100%" alt="Etkinlik Detayları" />
       <br />
-      <b>Etkinlik Detayları & Düzenleme</b>
+      <b>Randevularımızı Takvim Üzerinden Görme - Dashboard Bileşeni</b>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/06d2d72e-dc7e-4ff8-93b7-ff3f0d27ad32" width="100%" alt="Zaman Yönetimi" />
       <br />
-      <b>Zaman Yönetimi Paneli</b>
+      <b>Dashboard Kısmı </b>
     </td>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/fec14ec6-b173-4def-abc4-65de14607625" width="100%" alt="Mobil Görünüm" />
       <br />
-      <b>Esnek ve Modern Tasarım</b>
+      <b>İşletmeler Sayfası</b>
     </td>
   </tr>
 </table>
