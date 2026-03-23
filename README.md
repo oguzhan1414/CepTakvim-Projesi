@@ -1,43 +1,39 @@
 # Cep Takvim Projesi
 
-![Technology Stack](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
+## 📄 README
 
-## Project Details
+### 🌐 Language Switching
 
-The Cep Takvim Projesi is a sophisticated calendar application designed to help users manage their schedules efficiently. This project leverages modern web technologies to provide a seamless user experience and powerful features.
+<div style="text-align: center;">
+    <button onclick="showEnglish()">🇬🇧 English</button>
+    <button onclick="showTurkish()">🇹🇷 Türkçe</button>
+</div>
 
-### Features
-- **User Authentication:** Secure login and signup.
-- **Event Management:** Create, edit, delete, and view events with ease.
-- **Reminders:** Set reminders and notifications for upcoming events.
-- **Responsive Design:** Fully functional on both desktop and mobile devices.
+### 💻 Technologies Used
+<div style="text-align: center;">
+    <img src="https://img.shields.io/badge/JavaScript-efc30a?style=flat&logo=javascript&logoColor=white" />
+    <img src="https://img.shields.io/badge/HTML5-e44d26?style=flat&logo=html5&logoColor=white" />
+    <img src="https://img.shields.io/badge/CSS3-1572b6?style=flat&logo=css3&logoColor=white" />
+    <img src="https://img.shields.io/badge/React.js-61DAFB?style=flat&logo=react&logoColor=black" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
+</div>
 
-### Screenshots
-![Screenshot 1](link_to_screenshot_1)  
-![Screenshot 2](link_to_screenshot_2)  
-![Screenshot 3](link_to_screenshot_3)  
+### 📜 Project Description
+<div id="english">
+    <h3>English</h3>
+    <p>This project is a calendar application that helps users manage their schedules efficiently.</p>
+</div>
+<div id="turkish" style="display:none;"><h3>Türkçe</h3>
+    <p>Bu proje, kullanıcıların programlarını verimli bir şekilde yönetmelerine yardımcı olan bir takvim uygulamasıdır.</p>
+</div>
 
-### Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/oguzhan1414/CepTakvim-Projesi.git
-   ```
-2. Change into the directory:
-   ```bash
-   cd CepTakvim-Projesi
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the application:
-   ```bash
-   npm start
-   ```
-   Navigate to `http://localhost:3000` to view the application.
-
-## Contributing
-Contributions are welcome! Please fork this repository and create a pull request.
-
-## License
-This project is licensed under the MIT License.
+<script>
+function showEnglish() {
+    document.getElementById('english').style.display = 'block';
+    document.getElementById('turkish').style.display = 'none';
+}
+function showTurkish() {
+    document.getElementById('turkish').style.display = 'block';
+    document.getElementById('english').style.display = 'none';
+}
+</script>
