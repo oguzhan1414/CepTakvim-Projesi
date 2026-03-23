@@ -13,6 +13,7 @@
 <p align="center">
   <i>Günlük planlamanızı kusursuz, modern ve vizyoner bir cep takvimi deneyimiyle baştan yaratın.</i>
 </p>
+![Uploading Ekran görüntüsü 2026-03-23 043137.png…]()
 
 ---
 
@@ -34,7 +35,11 @@ Piyasadaki hantal ve öğrenme eğrisi yüksek uygulamaların aksine, bu proje h
 
 | Kontrol Paneli (Dashboard) | Etkinlik Oluşturma ve Detaylar |
 | :---: | :---: |
-| ![Dashboard Placeholder](file:///C:/Users/oguzh/OneDrive/Resimler/Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202026-03-23%20043137.png) | ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Etkinlik+Olusturma+Goruntusu) |
+| ![Dashboard Placeholder](file:///C:/Users/oguzh/OneDrive/Resimler/Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202026-03-23%20043137.png) 
+<img width="1898" height="1020" alt="Ekran görüntüsü 2026-03-23 043007" src="https://github.com/user-attachments/assets/fec14ec6-b173-4def-abc4-65de14607625" />
+
+| ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Etkinlik+Olusturma+Goruntusu) |
+
 
 > *Not: Proje geliştikçe yukarıdaki yer tutucu (placeholder) görsellerini, uygulamanızın gerçek ekran görüntüleriyle değiştirebilirsiniz.*
 
