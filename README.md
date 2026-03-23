@@ -1,43 +1,37 @@
 # Cep Takvim Projesi
 
 ## Proje Hakkında
-Bu proje, kullanıcıların takvim işlevlerini yönetmelerine yardımcı olmak amacıyla tasarlanmıştır.
+Cep Takvim Projesi, kullanıcıların etkinliklerini ve randevularını düzenlemelerine yardımcı olan bir uygulamadır. Frontend ve backend bileşenleri ile entegre bir yapıda tasarlanmıştır.
 
----
+## Proje Yapısı
+- **frontend/**: Kullanıcı arayüzü bileşenleri.
+- **backend/**: Sunucu tarafı kodları ve veritabanı işlemleri.
 
-## About The Project
-This project is designed to help users manage their calendar functionalities.
+## Kullanılan Teknolojiler
+- **Frontend**:
+  - React.js
+  - Redux
+  - Axios
 
----
+- **Backend**:
+  - Node.js
+  - Express.js
+  - MongoDB
 
-## Teknolojiler / Technologies
+## Kurulum Rehberi
+1. **Backend İçin**:
+   - `cd backend`
+   - `npm install`
+   - `.env dosyasını oluşturun ve gerekli değişkenleri ayarlayın.`
+   - `npm start` ile başlatın.
 
-<p align="center">
-  <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML5"/>
-  <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS3"/>
-  <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript"/>
-</p>
+2. **Frontend İçin**:
+   - `cd frontend`
+   - `npm install`
+   - `npm start` ile başlatın.
 
----
-
-## Kurulum / Installation
-1. Depoyu klonlayın: `git clone https://github.com/oguzhan1414/CepTakvim-Projesi`
-2. Gerekli bağımlılıkları yükleyin.
-
----
-
-## Katkıda Bulunanlar / Contributors
-- [Your Name](https://github.com/yourusername)
-- [Another Contributor](https://github.com/anotherusername)
-
----
-
-## Lisans / License
-Bu proje MIT Lisansı altında lisanslanmıştır.
-
----
-
-## İletişim / Contact
-E-posta: example@example.com
-
----
+## Özellikler
+- Etkinlik ekleme, güncelleme ve silme.
+- Randevu hatırlatmaları.
+- Kullanıcı dostu arayüz.
+- Mobil erişim uyumluluğu.
