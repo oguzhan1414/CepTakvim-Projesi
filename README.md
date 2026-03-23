@@ -34,7 +34,7 @@ Piyasadaki hantal ve öğrenme eğrisi yüksek uygulamaların aksine, bu proje h
 
 | Kontrol Paneli (Dashboard) | Etkinlik Oluşturma ve Detaylar |
 | :---: | :---: |
-| ![Dashboard Placeholder](https://via.placeholder.com/400x250.png?text=Kontrol+Paneli+Goruntusu) | ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Etkinlik+Olusturma+Goruntusu) |
+| ![Dashboard Placeholder](file:///C:/Users/oguzh/OneDrive/Resimler/Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202026-03-23%20043137.png) | ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Etkinlik+Olusturma+Goruntusu) |
 
 > *Not: Proje geliştikçe yukarıdaki yer tutucu (placeholder) görsellerini, uygulamanızın gerçek ekran görüntüleriyle değiştirebilirsiniz.*
 
