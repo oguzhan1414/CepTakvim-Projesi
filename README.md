@@ -13,7 +13,6 @@
 <p align="center">
   <i>Günlük planlamanızı kusursuz, modern ve vizyoner bir cep takvimi deneyimiyle baştan yaratın.</i>
 </p>
-<img width="1905" height="1015" alt="Ekran görüntüsü 2026-03-23 043137" src="https://github.com/user-attachments/assets/7966ab5b-bcbd-418a-9ed0-52a0ef5219d8" />
 
 ---
 
@@ -33,20 +32,46 @@ Piyasadaki hantal ve öğrenme eğrisi yüksek uygulamaların aksine, bu proje h
 
 ## 📸 Ekran Görüntüleri (Screenshots)
 
-| Kontrol Paneli (Dashboard) | Etkinlik Oluşturma ve Detaylar |
-| :---: | :---: |<img width="1896" height="1017" alt="Ekran görüntüsü 2026-03-23 043026" src="https://github.com/user-attachments/assets/952a4c5a-5921-46a5-808d-2d95365e8101" />
+Aşağıda, uygulamanın sunduğu modern ve sezgisel arayüzden çeşitli görünümler yer almaktadır. Ekranlar kullanıcı deneyimini (UX) en üst düzeye çıkarmak için özenle tasarlanmıştır.
 
-| ![Dashboard Placeholder](file:///C:/Users/oguzh/OneDrive/Resimler/Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Ekr<img width="1881" height="1028" alt="Ekran görüntüsü 2026-03-23 043041" src="https://github.com/user-attachments/assets/c09b64dd-4046-4181-b25b-87e621822037" />![Uploading Ekran görüntüsü 2026-03-23 043137.png…]()
-
-an%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202026-03-23%20043137.png) 
-<img width="1898" height="1020" alt="Ekran görüntüsü 2026-03-2<img width="1915" height="1014" alt="Ekran görüntüsü 2026-03-23 043123" src="https://github.com/user-attachments/assets/267e99ce-e5ae-436b-9f2a-f336853c3583" />
-3 <img width="1910" height="1012" alt="Ekran görüntüsü 2026-03-23 043114" src="https://github.com/user-attachments/assets/06d2d72e-dc7e-4ff8-93b7-ff3f0d27ad32" />
-043007" src="https://github.com/user-attachments/assets/fec14ec6-b173-4def-abc4-65de14607625" />
-
-| ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Etkinlik+Olusturma+Goruntusu) |
-
-
-> *Not: Proje geliştikçe yukarıdaki yer tutucu (placeholder) görsellerini, uygulamanızın gerçek ekran görüntüleriyle değiştirebilirsiniz.*
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/7966ab5b-bcbd-418a-9ed0-52a0ef5219d8" width="100%" alt="Kontrol Paneli" />
+      <br />
+      <b>Dashboard (Kontrol Paneli)</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/952a4c5a-5921-46a5-808d-2d95365e8101" width="100%" alt="Genel Görünüm" />
+      <br />
+      <b>Arayüz Genel Görünüm</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c09b64dd-4046-4181-b25b-87e621822037" width="100%" alt="Takvim ve Planlama" />
+      <br />
+      <b>Takvim & Planlama Yönetimi</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/267e99ce-e5ae-436b-9f2a-f336853c3583" width="100%" alt="Etkinlik Detayları" />
+      <br />
+      <b>Etkinlik Detayları & Düzenleme</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/06d2d72e-dc7e-4ff8-93b7-ff3f0d27ad32" width="100%" alt="Zaman Yönetimi" />
+      <br />
+      <b>Zaman Yönetimi Paneli</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/fec14ec6-b173-4def-abc4-65de14607625" width="100%" alt="Mobil Görünüm" />
+      <br />
+      <b>Esnek ve Modern Tasarım</b>
+    </td>
+  </tr>
+</table>
 
 ## ⚙️ Kurulum Rehberi (Installation)
 
