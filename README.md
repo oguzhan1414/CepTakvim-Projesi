@@ -1,42 +1,46 @@
 <h1 align="center">CepTakvim Projesi</h1>
 
 <p align="center">
-  <i>Empowering your daily scheduling with a seamless, visionary pocket calendar experience.</i>
+  <img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="JavaScript" title="JavaScript" />
+  <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" title="CSS" />
+  <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="HTML5" title="HTML5" />
+  <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React" title="React" />
+  <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js" title="Node.js" />
+  <img src="https://img.icons8.com/color/48/000000/express-js.png" alt="Express" title="Express" />
+  <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB" title="MongoDB" />
+</p>
+
+<p align="center">
+  <i>Günlük planlamanızı kusursuz, modern ve vizyoner bir cep takvimi deneyimiyle baştan yaratın.</i>
 </p>
 
 ---
 
-## 🚀 Project Summary
+## 🚀 Proje Özeti ve Vizyon
 
-Cep Takvim Projesi, kullanıcıların etkinliklerini ve randevularını düzenlemelerine yardımcı olan akıllı bir uygulamadır. Modern yaşamın yoğun temposunda, zaman yönetimini kolaylaştırmak ve karmaşıklığı ortadan kaldırmak için tasarlanmıştır. Kullanıcı dostu arayüzü sayesinde randevu takibi ve etkinlik yönetimi hiç olmadığı kadar kolay.
+Günümüzün hızlı tempolu ve yoğun dünyasında, zaman yönetimi sadece bir ihtiyaç değil, aynı zamanda başarıya giden yolda kritik bir zorunluluktur. **CepTakvim Projesi**, tam olarak bu ihtiyaca yanıt vermek üzere geliştirilmiş; karmaşık zaman yönetimi süreçlerini ortadan kaldıran, hafif, sezgisel ve yüksek düzeyde erişilebilir bir akıllı ajanda uygulamasıdır.
 
-## 🛠 Tech Stack
+Piyasadaki hantal ve öğrenme eğrisi yüksek uygulamaların aksine, bu proje hem profesyonellerin hem de günlük kullanıcıların hayatını kolaylaştırmaya odaklanır. Kullanıcı dostu ve estetik arayüzü sayesinde toplantılarınızı organize edebilir, önemli etkinliklerinizi takip edebilir ve üretkenliğinizi en üst düzeye çıkarabilirsiniz. Frontend ve backend teknolojilerinin kusursuz uyumuyla çalışan bu sistem, size sadece bir takvim değil, aynı zamanda kişisel bir asistan deneyimi sunmayı hedefler. Zamanınıza tam anlamıyla hükmetmek artık çok daha kolay, hızlı ve keyifli.
 
-<p align="left">
-  <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React" title="React" />
-  <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js" title="Node.js" />
-  <img src="https://img.icons8.com/color/48/000000/express-js.png" alt="Express.js" title="Express.js" />
-  <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB" title="MongoDB" />
-  <img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="JavaScript" title="JavaScript" />
-</p>
+## ✨ Temel Özellikler (Key Features)
 
-## ✨ Key Features
+*   **Gerçek Zamanlı Veri Senkronizasyonu:** Tüm takvim etkinlikleriniz anında güncellenir ve cihazlar arasında kesintisiz senkronizasyon sağlar.
+*   **Sezgisel Etkinlik Yönetimi:** Karmaşık formlardan uzak, tek tıkla hızlı etkinlik ekleme, detaylandırma, düzenleme ve silme imkanı.
+*   **Akıllı Hatırlatıcılar ve Bildirimler:** Önemli randevularınızı ve etkinliklerinizi asla kaçırmamanız için zamanında uyaran akıllı bildirim sistemi.
+*   **Duyarlı ve Adaptif UI (Responsive Design):** Mobil, tablet ve masaüstü cihazlarda ekran boyutuna otomatik uyum sağlayan modern, akıcı ve şık bir arayüz.
+*   **Güçlü Full-Stack Mimari:** Yüksek performanslı veri işleme ve güvenli depolama için MERN (MongoDB, Express.js, React, Node.js) standartlarında kurgulanmış sağlam altyapı.
 
-*   **Real-time Data Synchronization:** Keeps your calendar events up-to-date instantly.
-*   **Intuitive Event Management:** Etkinlik ekleme, güncelleme ve silme işlemleri.
-*   **Smart Reminders:** Randevu ve etkinlik hatırlatmaları.
-*   **Responsive & Adaptive UI:** Mobil erişim uyumluluğu ve modern tasarım.
-*   **Full-Stack Architecture:** Güçlü MERN (MongoDB, Express, React, Node) altyapısı.
+## 📸 Ekran Görüntüleri (Screenshots)
 
-## 📸 Screenshots
-
-| Dashboard View | Event Creation |
+| Kontrol Paneli (Dashboard) | Etkinlik Oluşturma ve Detaylar |
 | :---: | :---: |
-| ![Dashboard Placeholder](https://via.placeholder.com/400x250.png?text=Dashboard+Screenshot) | ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Event+Creation+Screenshot) |
+| ![Dashboard Placeholder](https://via.placeholder.com/400x250.png?text=Kontrol+Paneli+Goruntusu) | ![Event Placeholder](https://via.placeholder.com/400x250.png?text=Etkinlik+Olusturma+Goruntusu) |
 
-> *Note: Replace the placeholder URLs above with actual screenshots of the application.*
+> *Not: Proje geliştikçe yukarıdaki yer tutucu (placeholder) görsellerini, uygulamanızın gerçek ekran görüntüleriyle değiştirebilirsiniz.*
 
-## ⚙️ Kurulum Rehberi
+## ⚙️ Kurulum Rehberi (Installation)
+
+Projeyi yerel ortamınızda çalıştırmak ve geliştirmeye başlamak için aşağıdaki adımları sırasıyla izleyebilirsiniz:
 
 1. **Projeyi Klonlayın**
 ```bash
@@ -44,31 +48,17 @@ git clone https://github.com/oguzhan1414/CepTakvim-Projesi.git
 cd CepTakvim-Projesi
 ```
 
-2. **Backend İçin**
+2. **Backend (Sunucu) Kurulumu ve Başlatılması**
 ```bash
 cd backend
 npm install
-# .env dosyasını oluşturun ve gerekli değişkenleri ayarlayın
+# Lütfen projeye uygun bir .env dosyası oluşturarak MongoDB URI ve diğer gizli değişkenlerinizi tanımlayın.
 npm start
 ```
 
-3. **Frontend İçin**
+3. **Frontend (İstemci) Kurulumu ve Başlatılması**
 ```bash
 cd frontend
 npm install
 npm start
 ```
-
-## 🤝 Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
