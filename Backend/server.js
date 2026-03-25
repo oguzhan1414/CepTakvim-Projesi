@@ -47,7 +47,7 @@ app.use(cors({
 }));
 
 // Pre-flight (Ön kontrol) isteklerine tüm rotalarda izin ver
-app.options('(.*)', cors());
+
 
 // 2. Güvenlik ve Body Parser
 app.use(helmet({
