@@ -22,28 +22,50 @@ const paymentRoutes = require('./src/routers/paymentRoutes');
 
 const app = express();
 
+// Veritabanı Bağlantısı
 connectDB();
 
-// 1. Temel Ayarlar ve Body Parser (ÖNCE BUNLAR GELMELİ!)
-const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:5173','https://ceptakvim.vercel.app/'], // canlıya alırken domaini ekle
-  optionsSuccessStatus: 200,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
-};
-app.use(cors(corsOptions));
-app.use(express.json({ limit: '10kb' })); // Gelen veriyi (req.body) burada oluşturuyoruz
+// 1. CORS AYARLARI (En Geniş ve Güvenli Hali)
+const allowedOrigins = [
+  'https://ceptakvim.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
 
-// 2. Güvenlik Middlewares
-app.use(helmet());
+app.use(cors({
+  origin: function (origin, callback) {
+    // origin yoksa (Postman/Mobile) veya listedeyse izin ver
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS engeline takıldı!'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
+}));
+
+// Pre-flight (Ön kontrol) isteklerine tüm rotalarda izin ver
+app.options('*', cors());
+
+// 2. Güvenlik ve Body Parser
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" } // Helmet'in CORS ile çakışmasını önler
+}));
+app.use(express.json({ limit: '10kb' })); 
 app.use(hpp());
 
-// 3. XSS TEMİZLEME MIDDLEWARE (Artık req.body dolu olduğu için çalışacak)
+// 3. XSS TEMİZLEME MIDDLEWARE
 app.use((req, res, next) => {
   if (req.body && Object.keys(req.body).length > 0) {
-    const stringified = JSON.stringify(req.body);
-    const cleaned = filterXSS(stringified);
-    req.body = JSON.parse(cleaned);
+    try {
+      const stringified = JSON.stringify(req.body);
+      const cleaned = filterXSS(stringified);
+      req.body = JSON.parse(cleaned);
+    } catch (e) {
+      console.error("XSS temizleme hatası:", e);
+    }
   }
   next();
 });
@@ -58,7 +80,7 @@ app.use('/api/', limiter);
 
 // --- ROTALAR ---
 app.get('/', (req, res) => {
-  res.json({ mesaj: '✨ CepTakvim API Çalışıyor ve Güvende!' }); // İsmi güncelledim :)
+  res.json({ mesaj: '✨ CepTakvim API Çalışıyor ve Güvende!' });
 });
 
 app.use('/api/public', publicRoutes);
