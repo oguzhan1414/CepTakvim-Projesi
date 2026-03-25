@@ -27,6 +27,17 @@ exports.initializePayment = async (req, res) => {
       return res.status(400).json({ success: false, message: 'Geçersiz paket seçimi.' });
     }
 
+    // --- DÜZELTME 1: SPLIT HATASINI ÖNLEME ---
+    // Eğer işletme adı tek kelimeyse (Örn: "Ahmet"), surname kısmı undefined olur ve Iyzico hata verir.
+    // Bunu engellemek için isim boşsa veya tek kelimeyse varsayılan bir değer atıyoruz.
+    const nameParts = business.businessName.split(' ');
+    const safeName = nameParts[0] || 'İşletme';
+    const safeSurname = nameParts.length > 1 ? nameParts.slice(1).join(' ') : 'Yetkilisi';
+
+    // --- DÜZELTME 2: GÜVENLİ IP ALIMI ---
+    // Nginx arkasında çalışırken req.ip localhost dönebilir, gerçek kullanıcı IP'sini yakalamaya çalışıyoruz.
+    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '85.34.78.112';
+
     // 2. Iyzico için İstek (Request) Objesini Hazırla
     const request = {
       locale: 'tr',
@@ -37,7 +48,7 @@ exports.initializePayment = async (req, res) => {
       basketId: `BASKET-${business._id}-${Date.now()}`,
       paymentGroup: 'SUBSCRIPTION',
       
-      // Ödeme bitince Iyzico'nun sonucu göndereceği BİZİM BACKEND URL'İMİZ (Bunu birazdan yazacağız)
+      // Ödeme bitince Iyzico'nun sonucu göndereceği BİZİM BACKEND URL'İMİZ
       callbackUrl: `${process.env.BACKEND_URL || 'http://localhost:5000'}/api/payment/callback`,
       
       enabledInstallments: [1], // Tek çekim
@@ -45,13 +56,13 @@ exports.initializePayment = async (req, res) => {
       // ALICI BİLGİLERİ (Iyzico sahte veri bile olsa bunların dolu olmasını ister)
       buyer: {
         id: business._id.toString(),
-        name: business.businessName.split(' ')[0] || 'İşletme',
-        surname: business.businessName.split(' ')[1] || 'Sahibi',
+        name: safeName, // Güvenli isim değişkeni kullanıldı
+        surname: safeSurname, // Güvenli soyisim değişkeni kullanıldı
         gsmNumber: business.phone || '+905555555555',
         email: business.email,
         identityNumber: '11111111111', // Test ortamı için sabit TC
         registrationAddress: business.address || 'İstanbul, Türkiye',
-        ip: req.ip || '85.34.78.112', // İşlemi yapan cihazın IP'si
+        ip: clientIp, // Güvenli IP değişkeni kullanıldı
         city: 'Istanbul',
         country: 'Turkey',
         zipCode: '34732'
@@ -97,7 +108,6 @@ exports.initializePayment = async (req, res) => {
       if (result.status === 'success') {
         res.status(200).json({
           success: true,
-          // Iyzico bize bir paymentPageUrl verir. Frontend'i bu URL'e yönlendireceğiz.
           paymentPageUrl: result.paymentPageUrl,
           token: result.token // İşlemi doğrulamak için token
         });
@@ -156,10 +166,22 @@ exports.paymentCallback = async (req, res) => {
         if (business) {
           business.plan = planType;
           
-          // Abonelik süresini bugünden itibaren 30 gün uzat (Mevcut sürenin üstüne eklemiyoruz, direkt bugünden 30 gün)
-          business.subscriptionEndDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+          // --- DÜZELTME 3: ADİL SÜRE UZATMA MANTIĞI ---
+          // Kullanıcının paketi bitmeden ödeme yaptıysa günleri yakmamak için:
+          // Eğer subscriptionEndDate gelecekte bir tarihse, o tarihin üzerine 30 gün ekle.
+          // Eğer süresi çoktan bittiyse (veya ilk defa alıyorsa), bugünden itibaren 30 gün ver.
+          const now = new Date();
+          const thirtyDaysInMs = 30 * 24 * 60 * 60 * 1000;
           
-          // Eğer gerekliyse personel limitlerini de pakete göre güncelleyebilirsin
+          if (business.subscriptionEndDate && business.subscriptionEndDate > now) {
+            // Süresi devam ediyorsa, mevcut bitiş tarihine ekle
+            business.subscriptionEndDate = new Date(business.subscriptionEndDate.getTime() + thirtyDaysInMs);
+          } else {
+            // Süresi bittiyse veya ilk alışverişiyse, bugünden başlat
+            business.subscriptionEndDate = new Date(now.getTime() + thirtyDaysInMs);
+          }
+          
+          // Personel limitlerini pakete göre güncelle
           if (planType === 'pro') business.staffLimit = 5;
           if (planType === 'enterprise') business.staffLimit = 999;
 

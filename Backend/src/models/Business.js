@@ -41,24 +41,77 @@ const businessSchema = new mongoose.Schema({
   },
 
   // ==========================================
-  // 💰 ABONELİK VE PAKET SİSTEMİ (YENİ EKLENDİ)
+  // 🌐 SOSYAL MEDYA LİNKLERİ (YENİ EKLENDİ)
+  // ==========================================
+  socialMedia: {
+    instagram: { 
+      type: String, 
+      trim: true,
+      default: '',
+      validate: {
+        validator: function(v) {
+          // Instagram kullanıcı adı formatı kontrolü
+          return !v || /^[A-Za-z0-9._]{1,30}$/.test(v);
+        },
+        message: 'Geçersiz Instagram kullanıcı adı'
+      }
+    },
+    facebook: { 
+      type: String, 
+      trim: true,
+      default: '',
+      validate: {
+        validator: function(v) {
+          // Facebook sayfa adı veya kullanıcı adı
+          return !v || v.length >= 3;
+        },
+        message: 'Geçersiz Facebook kullanıcı adı'
+      }
+    },
+    twitter: { 
+      type: String, 
+      trim: true,
+      default: '',
+      validate: {
+        validator: function(v) {
+          // Twitter kullanıcı adı (@ işareti olmadan)
+          return !v || /^[A-Za-z0-9_]{1,15}$/.test(v);
+        },
+        message: 'Geçersiz Twitter kullanıcı adı'
+      }
+    },
+    website: { 
+      type: String, 
+      trim: true,
+      default: '',
+      validate: {
+        validator: function(v) {
+          // Website URL formatı
+          return !v || /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/.test(v);
+        },
+        message: 'Geçersiz website URL\'si'
+      }
+    }
+  },
+
+  // ==========================================
+  // 💰 ABONELİK VE PAKET SİSTEMİ
   // ==========================================
   plan: { 
     type: String, 
     enum: ['free', 'basic', 'pro', 'enterprise'], 
-    default: 'free' // Herkes 14 günlük ücretsiz deneme ile başlar
+    default: 'free'
   },
   subscriptionEndDate: {
     type: Date,
-    // Kayıt olunan andan itibaren tam 14 gün sonrasını hesaplar
     default: () => new Date(+new Date() + 14 * 24 * 60 * 60 * 1000) 
   },
   staffLimit: {
     type: Number,
-    default: 1 // Free ve Basic pakette sadece 1 personel (işletme sahibi) eklenebilir
+    default: 1
   },
   iyzicoCustomerId: {
-    type: String // Ödeme yapan müşterinin Iyzico tarafındaki ID'si (Tek tıkla ödeme için)
+    type: String
   },
   // ==========================================
 
@@ -69,6 +122,14 @@ const businessSchema = new mongoose.Schema({
   isOnboardingComplete: {
     type: Boolean,
     default: false
+  },
+  notificationSettings: {
+  emailNotifications: { type: Boolean, default: true },
+  smsNotifications: { type: Boolean, default: false },
+  whatsappNotifications: { type: Boolean, default: false },
+  appointmentReminders: { type: Boolean, default: true },
+  newCustomerAlerts: { type: Boolean, default: true },
+  dailySummary: { type: Boolean, default: false }
   },
   
   // Çalışma Saatleri
@@ -82,21 +143,17 @@ const businessSchema = new mongoose.Schema({
     sunday: { active: { type: Boolean, default: false }, start: { type: String, default: '10:00' }, end: { type: String, default: '16:00' } }
   }
 }, { 
-  timestamps: true // Bu ayar, kaydın ne zaman oluşturulduğunu (createdAt) ve güncellendiğini (updatedAt) otomatik tutar.
+  timestamps: true
 });
 
 businessSchema.pre('save', async function() {
-  // Eğer şifre alanı değiştirilmediyse tekrar şifreleme yapma
   if (!this.isModified('password')) {
     return; 
   }
-  
-  // Şifreyi 10 tur karıştır (salt) ve kriptola
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-// Giriş yaparken kullanıcının girdiği şifre ile veritabanındaki kriptolu şifreyi karşılaştıran metod
 businessSchema.methods.matchPassword = async function(enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

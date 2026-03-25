@@ -13,7 +13,7 @@ exports.getBusinessBySlug = async (req, res) => {
     const { slug } = req.params;
 
     const business = await Business.findOne({ slug }).select(
-      'businessName slug phone address logoUrl workingHours'
+      'businessName slug phone address logoUrl workingHours description website socialMedia'
     );
 
     if (!business) {
@@ -35,7 +35,6 @@ exports.getBusinessBySlug = async (req, res) => {
     });
   }
 };
-
 // @desc    Tüm işletmeleri listele (Landing page için)
 // @route   GET /api/public/businesses
 // @access  Public
@@ -286,6 +285,15 @@ exports.createPublicAppointment = async (req, res) => {
       });
     }
 
+    // İşletme bilgilerini al (E-POSTA İÇİN LAZIM)
+    const business = await Business.findById(businessId);
+    if (!business) {
+      return res.status(404).json({ 
+        success: false, 
+        message: 'İşletme bulunamadı.' 
+      });
+    }
+
     // Hizmet süresini al
     const service = await Service.findById(serviceId);
     if (!service) {
@@ -312,22 +320,27 @@ exports.createPublicAppointment = async (req, res) => {
       phone: customer.phone 
     });
 
-    if (!customerDoc) {
-      console.log('🆕 Yeni müşteri oluşturuluyor...');
-      customerDoc = await Customer.create({
-        businessId,
-        fullName: customer.fullName,
-        phone: customer.phone,
-        email: customer.email || ''
-      });
-      console.log('✅ Yeni müşteri oluşturuldu:', customerDoc._id);
-    } else {
-      console.log('✅ Mevcut müşteri bulundu:', customerDoc._id);
-      // Optional update
-      customerDoc.fullName = customer.fullName;
-      if (customer.email) customerDoc.email = customer.email;
-      await customerDoc.save();
+   if (!customerDoc) {
+  console.log('🆕 Yeni müşteri oluşturuluyor...');
+  customerDoc = await Customer.create({
+    businessId,
+    fullName: customer.fullName,
+    phone: customer.phone,
+    email: customer.email || ''
+  });
+  console.log('✅ Yeni müşteri oluşturuldu:', customerDoc._id);
+  
+  // 📧 YENİ MÜŞTERİ MAİLİ GÖNDER
+  if (business.notificationSettings?.newCustomerAlerts) {
+    try {
+      const emailNotificationController = require('./emailNotificationController');
+      await emailNotificationController.sendNewCustomerEmail(businessId, customerDoc._id);
+      console.log('📧 Yeni müşteri maili gönderildi');
+    } catch (emailError) {
+      console.error('❌ Yeni müşteri maili hatası:', emailError.message);
     }
+  }
+}
 
     // Randevu oluştur
     console.log('📅 Randevu oluşturuluyor...');
@@ -359,7 +372,7 @@ exports.createPublicAppointment = async (req, res) => {
       { path: 'staffId', select: 'name' }
     ]);
 
-    // Bildirim oluştur
+    // 🔔 BİLDİRİM GÖNDER (In-app)
     const notificationController = require('./notificationController');
     await notificationController.createNewAppointmentNotification(
       businessId,
@@ -367,7 +380,26 @@ exports.createPublicAppointment = async (req, res) => {
       customerDoc,
       service
     );
-    console.log('🔔 Bildirim gönderildi');
+    console.log('🔔 In-app bildirim gönderildi');
+
+    // 📧 E-POSTA BİLDİRİMİ GÖNDER (Eğer ayarlarda açıksa)
+    if (business.notificationSettings?.emailNotifications) {
+      try {
+        const emailNotificationController = require('./emailNotificationController');
+        await emailNotificationController.sendNewAppointmentEmail(
+          businessId,
+          appointment,
+          customerDoc._id,
+          serviceId
+        );
+        console.log('📧 E-posta bildirimi gönderildi');
+      } catch (emailError) {
+        console.error('❌ E-posta gönderme hatası:', emailError.message);
+        // E-posta hatası olsa bile randevu oluşmuştur, devam et
+      }
+    } else {
+      console.log('📧 E-posta bildirimleri kapalı');
+    }
 
     res.status(201).json({
       success: true,

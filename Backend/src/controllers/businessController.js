@@ -1,5 +1,5 @@
 const Business = require('../models/Business');
-const bcrypt = require('bcryptjs'); // Şifre şifreleme için gerekli
+const bcrypt = require('bcryptjs');
 
 // @desc    Giriş yapmış işletmenin kendi profil bilgilerini getir
 // @route   GET /api/business/profile
@@ -27,30 +27,59 @@ exports.getBusinessProfile = async (req, res) => {
 exports.updateBusinessProfile = async (req, res) => {
   try {
     // Frontend'den gelen TÜM güncellenebilir alanları alıyoruz
-    const { businessName, phone, address, website, description, workingHours, settings, logoUrl, slug } = req.body;
+    const { 
+      businessName, 
+      phone, 
+      address, 
+      description, 
+      workingHours, 
+      logoUrl, 
+      slug,
+      socialMedia,
+      notificationSettings,
+      website // Website alanını da ekledik
+    } = req.body;
+    
+    console.log('Gelen sosyal medya verisi:', socialMedia); 
+    console.log('Gelen bildirim ayarları:', notificationSettings);
+    console.log('Gelen logo URL:', logoUrl);
 
-    // Slug kontrolü: Eğer slug geldiyse boşlukları vb temizleyip küçük harfe çevirebiliriz
+    // Tüm güncellenebilir alanları tek bir objede topla
     let updateFields = {
       businessName,
       phone,
       address,
-      website,
       description,
       workingHours,
-      settings,
-      logoUrl
+      logoUrl, // Logo URL'ini direkt ekle
+      website  // Website'i de ekle
     };
 
+    // Sosyal medya alanlarını ekle (eğer varsa)
+    if (socialMedia) {
+      updateFields.socialMedia = socialMedia;
+    }
+
+    // Bildirim ayarlarını ekle (eğer varsa)
+    if (notificationSettings) {
+      updateFields.notificationSettings = notificationSettings;
+    }
+
+    // Slug varsa formatla ve ekle
     if (slug) {
       updateFields.slug = slug.toLowerCase().replace(/\s+/g, '-');
     }
 
-    // { returnDocument: 'after' } kullanımı Mongoose 'new' uyarısını ortadan kaldırır!
+    // undefined olan alanları temizle (opsiyonel, veritabanında güncelleme yaparken gereksiz alanları göndermemek için)
+    Object.keys(updateFields).forEach(key => 
+      updateFields[key] === undefined && delete updateFields[key]
+    );
+
+    console.log('Güncellenecek alanlar:', updateFields);
+
     const updatedBusiness = await Business.findByIdAndUpdate(
       req.business._id,
-      {
-        $set: updateFields
-      },
+      { $set: updateFields },
       { returnDocument: 'after', runValidators: true }
     ).select('-password');
 
@@ -60,6 +89,7 @@ exports.updateBusinessProfile = async (req, res) => {
       data: updatedBusiness
     });
   } catch (error) {
+    // Slug duplicate key hatası
     if (error.code === 11000 && error.keyPattern && error.keyPattern.slug) {
       return res.status(400).json({ 
         success: false, 
@@ -67,7 +97,22 @@ exports.updateBusinessProfile = async (req, res) => {
       });
     }
 
-    res.status(500).json({ success: false, message: 'Profil güncellenirken hata oluştu.', error: error.message });
+    // Validasyon hatası
+    if (error.name === 'ValidationError') {
+      const errors = Object.values(error.errors).map(err => err.message);
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Validasyon hatası', 
+        errors 
+      });
+    }
+
+    console.error('Güncelleme hatası:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Profil güncellenirken hata oluştu.', 
+      error: error.message 
+    });
   }
 };
 
@@ -78,23 +123,24 @@ exports.changePassword = async (req, res) => {
   try {
     const { currentPassword, newPassword } = req.body;
 
-    // 1. İşletmeyi veritabanında bul (Şifreyi de getirmesi için select('+password') kullanıyoruz)
+    // Şifreyi de getir
     const business = await Business.findById(req.business._id).select('+password');
 
     if (!business) {
       return res.status(404).json({ success: false, message: 'İşletme bulunamadı.' });
     }
 
-    // 2. Mevcut şifre doğru mu kontrol et
+    // Mevcut şifre kontrolü
     const isMatch = await bcrypt.compare(currentPassword, business.password);
     if (!isMatch) {
       return res.status(400).json({ success: false, message: 'Mevcut şifreniz yanlış!' });
     }
 
-    // 3. Yeni şifreyi şifrele (Hash) ve veritabanına kaydet
+    // Yeni şifreyi hashle
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(newPassword, salt);
 
+    // Şifreyi güncelle
     await Business.findByIdAndUpdate(req.business._id, { password: hashedPassword });
 
     res.status(200).json({
@@ -102,6 +148,47 @@ exports.changePassword = async (req, res) => {
       message: 'Şifreniz başarıyla güncellendi.'
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Şifre değiştirilirken hata oluştu.', error: error.message });
+    console.error('Şifre değiştirme hatası:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Şifre değiştirilirken hata oluştu.', 
+      error: error.message 
+    });
+  }
+};
+
+// @desc    Logo yükleme URL'ini güncelle (opsiyonel - ayrı bir endpoint)
+// @route   POST /api/business/upload-logo
+// @access  Private
+exports.uploadLogo = async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Lütfen bir dosya yükleyin.' 
+      });
+    }
+
+    // Cloudinary veya başka bir servisten gelen URL
+    const logoUrl = req.file.path; // veya req.file.url
+
+    const updatedBusiness = await Business.findByIdAndUpdate(
+      req.business._id,
+      { $set: { logoUrl } },
+      { returnDocument: 'after', runValidators: true }
+    ).select('-password');
+
+    res.status(200).json({
+      success: true,
+      message: 'Logo başarıyla yüklendi.',
+      data: { logoUrl: updatedBusiness.logoUrl }
+    });
+  } catch (error) {
+    console.error('Logo yükleme hatası:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Logo yüklenirken hata oluştu.', 
+      error: error.message 
+    });
   }
 };
