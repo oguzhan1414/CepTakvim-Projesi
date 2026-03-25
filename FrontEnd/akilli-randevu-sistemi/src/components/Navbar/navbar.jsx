@@ -32,11 +32,15 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         
-        {/* Logo */}
         <Link to="/" className="navbar-logo">
+          <img src={logo} alt="CepTakvim Logo" className="logo-img" />
+          
+        </Link>
+        {/* Logo */}
+        {/* <Link to="/" className="navbar-logo">
           <img src={logo} alt="CepTakvim Logo" className="logo-icon" />
           <span className="logo-text">CepTakvim</span>
-        </Link>
+        </Link> */}
 
         {/* Navigasyon Linkleri - SADECE MASAÜSTÜ GÖRÜNÜR */}
         <ul className="navbar-menu desktop-menu">
