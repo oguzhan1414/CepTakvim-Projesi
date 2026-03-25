@@ -26,8 +26,10 @@ connectDB();
 
 // 1. Temel Ayarlar ve Body Parser (ÖNCE BUNLAR GELMELİ!)
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:5173'], // canlıya alırken domaini ekle
-  optionsSuccessStatus: 200
+  origin: ['http://localhost:3000', 'http://localhost:5173','https://ceptakvim.vercel.app/'], // canlıya alırken domaini ekle
+  optionsSuccessStatus: 200,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 };
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10kb' })); // Gelen veriyi (req.body) burada oluşturuyoruz
